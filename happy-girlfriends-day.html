@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Girlfriend's Day</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe0f0, #ffc0cb);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #d63384;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .flowers {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .flowers img {
+      width: 120px;
+      height: auto;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .red-love {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .white-love {
+      background-color: white;
+      color: #ff4d6d;
+      border: 2px solid #ff4d6d;
+    }
+
+    .rose {
+      background-color: #a83256;
+      color: white;
+    }
+
+    .message-box {
+      margin-top: 20px;
+      background-color: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.2em;
+      color: #6f0a3d;
+      white-space: pre-wrap;
+    }
+
+    .love {
+      font-size: 1.2em;
+      color: #ff69b4;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: red;
+      animation: floatHeart 2s forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <div class="container">
+    <h1>Happy Girlfriend's Day 💖</h1>
+
+    <div class="options">
+      <button class="red-love" onclick="showMessage('red')">❤️ Love Merah</button>
+      <button class="white-love" onclick="showMessage('white')">🤍 Love Putih</button>
+      <button class="rose" onclick="showMessage('rose')">🌹 Mawar Merah</button>
+    </div>
+
+    <div class="message-box" id="messageBox">
+      Klik salah satu opsi untuk melihat pesan romantis 💌
+    </div>
+
+    <div class="flowers">
+      <img src="https://i.ibb.co/7y6FvTx/flower1.png" alt="bunga 1"/>
+      <img src="https://i.ibb.co/f8BLGn0/flower2.png" alt="bunga 2"/>
+      <img src="https://i.ibb.co/DzM9NBg/flower3.png" alt="bunga 3"/>
+    </div>
+    <p class="love">I 💕 U selalu dan selamanya 😘</p>
+  </div>
+
+  <script>
+    function showMessage(option) {
+      const messages = {
+        red: `Selamat Girlfriend’s Day, Nova sayang 💕
+Kamu bukan cuma orang yang paling aku sayang, tapi juga sahabat terbaik, rumah ternyaman, dan alasan aku terus bersyukur.
+Terima kasih sudah ada, setia, dan sabar menghadapi versi terbaik dan terburukku.
+Aku cinta kamu, hari ini dan setiap hari. ❤️🌹`,
+
+        white: `Happy Girlfriend Day, Nova sayang! 🐥💗
+Terima kasih udah jadi orang yang paling aku sayang, tukang ngambek terimut, dan alarm hidupku setiap hari 😆
+Kalau kamu coklat, aku mau jadi es krim biar bisa lengket terus~ 🍫🍦
+Love u sampai kuota habis! ❤️🤣`,
+
+        rose: `Happy Girlfriend’s Day NOVA SAYANGGG 🐣💗
+
+Terima kasih udah jadi orang yang paling nyaman dan aku sayang:
+
+Kalau kamu kucing, aku mau jadi ikan.
+Kalau kamu ayam, aku jadi nasi padang. 🐔🍛
+Pokoknya, mau jadi apapun, aku tetap milih kamu ❤️
+
+Maaf ya kadang aku nyebelin, tapi percayalah…
+Aku nyebelin karena sayang — bukan karena gangguan jiwa 🤣🤣
+
+Love you always, Nova wanita 
+favoritku yang ter-unyu se-planet bumi 🌍💘`
+      };
+
+      document.getElementById("messageBox").innerText = messages[option];
+    }
+
+    document.body.addEventListener('click', function(e) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = e.pageX + "px";
+      heart.style.top = e.pageY + "px";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 2000);
+    });
+
+    const music = document.getElementById("bgMusic");
+    document.addEventListener("click", () => {
+      music.play().catch(()=>{});
+    });
+  </script>
+
+</body>
+</html>
